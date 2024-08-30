@@ -30,9 +30,11 @@ import menu from "../../public/images/icons/menu.svg";
       <DownloadCV /> -->
 
         <button
-          id="download-cv"
           class="inline-flex items-center justify-center rounded-xl bg-gray-900 px-4 py-1.5 font-medium text-gray-50 transition-colors duration-200 hover:bg-gray-700 active:bg-gray-800"
-          >Download CV</button
+          ><a
+            href="https://www.dropbox.com/scl/fi/rjtmmsujnsq8rmm6zpidd/linearesDiego.pdf?rlkey=6x8ykirowcvyru9qpkks8ygux&e=1&st=bf6ltqgu&dl=1"
+            target="_blank">Download CV</a
+          ></button
         >
       </div>
     </div>
@@ -56,9 +58,12 @@ import menu from "../../public/images/icons/menu.svg";
     }
 
     <button
-      id="download-cv"
       class="inline-flex items-center justify-center rounded-xl bg-gray-900 px-4 py-1.5 font-medium text-gray-50 transition-colors duration-200 hover:bg-gray-700 active:bg-gray-800"
-      >Download CV</button
+    >
+      <a
+        href="https://www.dropbox.com/scl/fi/rjtmmsujnsq8rmm6zpidd/linearesDiego.pdf?rlkey=6x8ykirowcvyru9qpkks8ygux&e=1&st=bf6ltqgu&dl=1"
+        target="_blank">Download CV</a
+      ></button
     >
   </div>
 </header>
@@ -73,14 +78,6 @@ import menu from "../../public/images/icons/menu.svg";
   const nav = document.querySelector("#mobile-menu");
   const navLinks = nav?.querySelectorAll("a");
 
-  console.log(navLinks);
-
-  downloadCV?.addEventListener("click", () => {
-    window.open(
-      "https://www.dropbox.com/scl/fi/rjtmmsujnsq8rmm6zpidd/linearesDiego.pdf?rlkey=6x8ykirowcvyru9qpkks8ygux&e=1&st=bf6ltqgu&dl=0",
-      "_blank"
-    );
-  });
   const changePoint = 100;
 
   window.addEventListener("scroll", () => {
