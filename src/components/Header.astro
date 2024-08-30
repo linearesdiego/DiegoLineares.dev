@@ -1,0 +1,105 @@
+---
+import { Image } from "astro:assets";
+import { NAV_LINKS } from "../libs/data";
+
+import menu from "../../public/images/icons/menu.svg";
+---
+
+<header id="header" class="sticky top-0 z-50 w-full lg:px-0">
+  <div class="containerWidth text-gray400 flex justify-between items-center">
+    <a href="/" class="">
+      <h1 class="text-2xl md:text-3xl tracking-[-0.02em] font-bold">
+        {"<DL />"}
+      </h1>
+    </a>
+    <div class="hidden lg:flex gap-4 items-center">
+      <div class="flex gap-10">
+        {
+          NAV_LINKS.map((link, index) => (
+            <a href={link.href} class="text-sm md:text-base ">
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="h-6 w-0.5 bg-[#1f2937]"></div>
+
+      <div class="flex items-center gap-4">
+        <!--  <ThemeSwitcher />
+      <DownloadCV /> -->
+
+        <button
+          id="download-cv"
+          class="inline-flex items-center justify-center rounded-xl bg-gray-900 px-4 py-1.5 font-medium text-gray-50 transition-colors duration-200 hover:bg-gray-700 active:bg-gray-800"
+          >Download CV</button
+        >
+      </div>
+    </div>
+
+    <div id="menu-icon" class="lg:hidden">
+      <Image src={menu} alt="Menu" class="h-6 w-6" />
+    </div>
+  </div>
+
+  <!-- Menú desplegable -->
+  <div
+    id="mobile-menu"
+    class="flex flex-col items-center gap-10 p-4 bg-gray-800 text-white"
+  >
+    {
+      NAV_LINKS.map((link, index) => (
+        <a href={link.href} class="text-base">
+          {link.label}
+        </a>
+      ))
+    }
+
+    <button
+      id="download-cv"
+      class="inline-flex items-center justify-center rounded-xl bg-gray-900 px-4 py-1.5 font-medium text-gray-50 transition-colors duration-200 hover:bg-gray-700 active:bg-gray-800"
+      >Download CV</button
+    >
+  </div>
+</header>
+
+<script>
+  const downloadCV = document.getElementById("download-cv");
+  const header = document.getElementById("header");
+
+  const menuIcon = document.getElementById("menu-icon");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  const nav = document.querySelector("#mobile-menu");
+  const navLinks = nav?.querySelectorAll("a");
+
+  console.log(navLinks);
+
+  downloadCV?.addEventListener("click", () => {
+    window.open(
+      "https://www.dropbox.com/scl/fi/rjtmmsujnsq8rmm6zpidd/linearesDiego.pdf?rlkey=6x8ykirowcvyru9qpkks8ygux&e=1&st=bf6ltqgu&dl=0",
+      "_blank"
+    );
+  });
+  const changePoint = 100;
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > changePoint) {
+      header?.classList.add("header-blur");
+      header?.classList.remove("header-transparent");
+    } else {
+      header?.classList.remove("header-blur");
+      header?.classList.add("header-transparent");
+    }
+  });
+
+  menuIcon?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("show");
+  });
+
+  navLinks?.forEach((link) => {
+    link.addEventListener("click", () => {
+      nav?.classList.toggle("show");
+    });
+  });
+</script>

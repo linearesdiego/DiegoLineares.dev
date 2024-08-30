@@ -1,0 +1,39 @@
+---
+import { EXPERIENCES } from "../libs/data";
+---
+
+<section id="experience" class="w-full bg-secondary">
+  <div class="containerWidth">
+    <div class="w-full flex flex-col items-center gap-4 justify-center">
+      <span class="rounded-xl bg-[#374151] px-5 py-1 mt-20">Experiencias</span>
+
+      <p class="text-gray-300">
+        Aquí hay un breve resumen de mis experiencias más recientes:
+      </p>
+    </div>
+
+    <div class="my-10 space-y-10">
+      {
+        EXPERIENCES.map((item) => (
+          <div class="rounded-xl bg-[#1f2937] shadow-md mx-auto flex w-full max-w-4xl flex-col justify-between gap-4 p-8 md:flex-row md:gap-8">
+            <div class="max-md:order-1 md:w-1/4 ">
+              <h1 class={`text-[${item.color}] text-2xl font-bold`}>
+                {item.title}
+              </h1>
+            </div>
+            <div class="flex flex-col gap-4 max-md:order-3 md:w-2/4">
+              <h1 class="text-xl">{item.subtitle}</h1>
+
+              {item.description.map((desc) => (
+                <ul class="flex list-disc flex-col gap-2 md:gap-1">
+                  <li>{desc}</li>
+                </ul>
+              ))}
+            </div>
+            <div class="max-md:order-2 md:w-1/4">{item.date}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

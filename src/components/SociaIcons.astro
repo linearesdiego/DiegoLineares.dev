@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+import { SOCIAL_LINKS } from "../libs/data";
+---
+
+<div class="flex gap-4">
+  {
+    SOCIAL_LINKS.map((socialLink, index) => (
+      <a
+        class="hover:bg-tertiary rounded-lg p-1.5 transition-colors duration-200 cursor-pointer"
+        href={socialLink.url}
+        target="_blank"
+      >
+        <Image src={socialLink.icon} alt={socialLink.url} class="h-6 w-6" />
+      </a>
+    ))
+  }
+</div>

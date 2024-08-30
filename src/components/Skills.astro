@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+import { TECNOLOGIES } from "../libs/data";
+---
+
+<section class="containerWidth">
+  <div class="w-full flex flex-col items-center gap-4 justify-center">
+    <span class="rounded-xl bg-[#374151] px-5 py-1 mt-20">Habilidades</span>
+
+    <p class="text-gray-300">Las habilidades, herramientas y tecnologías :</p>
+  </div>
+  <div
+    class="grid grid-cols-2 gap-y-4 md:grid-cols-3 md:gap-y-3 lg:grid-cols-6 lg:gap-y-12 my-10"
+  >
+    {
+      TECNOLOGIES.map((item) => (
+        <div class="flex flex-col gap-4 items-center justify-center">
+          <Image
+            src={item.img}
+            alt={item.title}
+            class="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 hover:brightness-125 cursor-pointer"
+          />
+          <span class="text-gray-300 text-center">{item.title}</span>
+        </div>
+      ))
+    }
+  </div>
+</section>

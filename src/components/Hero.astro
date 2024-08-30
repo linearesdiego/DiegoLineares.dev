@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+
+import diego from "../../public/images/diego.jpeg";
+import location from "../../public/images/icons/location.svg";
+import SociaIcons from "./SociaIcons.astro";
+---
+
+<section id="#about" class="containerWidth w-full bg-primary">
+  <div class="w-full py-16 md:py-20 2xl:py-24">
+    <div class="w-full flex flex-col gap-12 md:flex-row justify-between">
+      {/* Imagen */}
+      <div
+        class="w-full flex items-center justify-center md:order-last md:flex-grow md:justify-end"
+      >
+        <div class="relative h-[300px] w-[280px] md:h-[360px] md:w-[320px]">
+          <Image
+            src={diego}
+            alt="Diego Lineares"
+            class="absolute z-10 h-[280px] w-[240px] border-8 border-primary max-md:left-5 md:left-0 md:top-0 md:h-[320px] md:w-[280px]"
+            style={{ objectFit: "cover" }}
+          />
+          <div
+            class="absolute h-[280px] w-[280px] border-8 border-transparent bg-tertiary max-md:top-5 md:bottom-0 md:right-0 md:h-[320px] md:w-[280px]"
+          >
+          </div>
+        </div>
+      </div>
+
+      {/* Contenido */}
+      <div
+        class="flex max-w-3xl flex-grow flex-col justify-center gap-8 md:order-first md:items-start md:justify-center 2xl:gap-12"
+      >
+        <div class="flex flex-col gap-2">
+          <h1 class="text-6xl font-bold">
+            Hola, soy Diego{" "}
+            <span class="inline-block animate-waving-hand">👋</span>
+          </h1>
+          <p class="text-gray-300">
+            Soy un desarrollador full stack (React.js & Node.js) enfocado en
+            crear (y ocasionalmente diseñar) experiencias digitales
+            excepcionales que sean rápidas, accesibles, visualmente atractivas y
+            responsivas. Aunque llevo más de 2 años creando aplicaciones web,
+            todavía lo disfruto como si fuera algo nuevo.
+          </p>
+        </div>
+        <div class="flex flex-col gap-2 text-gray-300">
+          <div class="flex gap-2">
+            <Image src={location} alt="ubicación" class="h-6 w-6" />
+
+            <p>San Juan, Argentina</p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <div class="flex h-6 w-6 items-center justify-center">
+              <span class="relative flex h-3 w-3">
+                <span
+                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"
+                ></span>
+              </span>
+            </div>
+            <p>Disponible para nuevos proyectos</p>
+          </div>
+        </div>
+        <SociaIcons />
+      </div>
+    </div>
+  </div>
+</section>

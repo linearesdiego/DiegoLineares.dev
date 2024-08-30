@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import diego from "../../public/images/diego.png";
+---
+
+<section id="about" class="w-full bg-secondary">
+  <div class="w-full flex items-center justify-center mt-10">
+    <span class="rounded-xl bg-[#374151] px-5 py-1 mt-20">Sobre mi</span>
+  </div>
+  <div class="containerWidth">
+    <div class="flex w-full flex-col justify-between gap-12 md:flex-row mt-12">
+      {/* Image */}
+      <div class="flex justify-center md:order-first md:justify-end">
+        <div
+          class="relative h-[380px] w-[320px] md:h-[460px] md:w-[380px] lg:h-[520px] lg:w-[440px]"
+        >
+          <Image
+            src={diego}
+            alt="Diego"
+            class=""
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div class="space-y-10">
+        <h1 class="text-2xl lg:text-3xl">
+          ¿Curioso por saber más sobre mí? Aquí lo tienes:
+        </h1>
+
+        <p class="text-gray-300 leading-7">
+          Soy un estudiante de Tecnología en Desarrollo Web con más de un dos
+          años experiencia trabajando como programador Front-End. Durante este
+          tiempo, he tenido la oportunidad de aprender y aplicar mis
+          conocimientos en la creación de sitios web atractivos y funcionales.
+          Mi objetivo es seguir <span class="text-blue-500">creciendo</span> en mi
+          carrera, combinar mi formación académica con mi experiencia laboral, y
+          contribuir a proyectos web emocionantes y desafiantes.
+        </p>
+
+        <p class="text-gray-300 leading-7">
+          Me encuentro cursando el segundo año de la Tecnicatura en
+          Desarrollador de Software en la Universidad de San Juan, donde estoy
+          fortaleciendo mis conocimientos en programación, desarrollo de
+          aplicaciones web, y bases de datos. Además, estoy aprendiendo a
+          trabajar con tecnologías modernas y frameworks que me permiten crear
+          soluciones eficientes y escalables. Estoy comprometido en seguir
+          perfeccionando mis habilidades y aplicarlas en proyectos que hagan una
+          diferencia.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
